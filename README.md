@@ -1,5 +1,11 @@
 # Code-Quiz-Challenge
 
+# Questions for tutoring
+
+How do I make sections of HTML disappear and appear?
+How can I efficient store all of the quiz questions and randomize them? Can I make a "questions" class and general each question as a new object?
+How do I set each question/ button as a correct/ incorrect question?
+
 # User Story
 
 AS A coding boot camp student
