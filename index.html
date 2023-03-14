@@ -9,6 +9,15 @@
     <title>Code Quiz Game</title>
 </head>
 <body>
+    <section>
+        <h2>High Scores: </h2>
+        <ol id="high-score-list">
+            <li>Score 1</li>
+            <li>Score 2</li>
+            <li>Score 3</li>
+        </ol>
+    </section>
+    <div>Time: <span id="time-left-span"></span></div>
     <header>
         <h1>Coding Quiz</h1>
         <p>Answer the following questions as quickly as you can before time runs out! 
@@ -16,6 +25,15 @@
             Your time remaining will be stored in high scores!
         </p>
     </header>
+    <div id="question-card">
+        <p>Question Text</p>
+        <ol>
+            <li><button id ="answer1">Answer 1</button></li>
+            <li><button id ="answer2">Answer 2</button></li>
+            <li><button id ="answer3">Answer 3</button></li>
+            <li><button id ="answer4">Answer 4</button></li>
+        </ol>
+    </div>
     <script src="./assets/js/script.js"></script>
 </body>
 </html>
