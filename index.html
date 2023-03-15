@@ -10,21 +10,25 @@
 </head>
 <body>
     <section>
-        <h2>High Scores: </h2>
-        <ol id="high-score-list">
-            <li>Score 1</li>
-            <li>Score 2</li>
-            <li>Score 3</li>
-        </ol>
+        <div id="high-scores">
+            <h2>High Scores: </h2>
+            <ol id="high-score-list">
+                <li>Score 1</li>
+                <li>Score 2</li>
+                <li>Score 3</li>
+            </ol>
+        </div>
+        <div id="timer">Time: <span id="time-left-span"></span></div>
     </section>
-    <div>Time: <span id="time-left-span"></span></div>
-    <header>
+    
+    <section id="instructions">
         <h1>Coding Quiz</h1>
         <p>Answer the following questions as quickly as you can before time runs out! 
             Be careful, incorrect answers will take time off the clock.
             Your time remaining will be stored in high scores!
         </p>
-    </header>
+        <button id="start-button">Start!</button>
+    </section>
     <div id="question-card">
         <p>Question text goes here! It could be a longer question, so this is to fill in space!</p>
         <ol>
@@ -33,6 +37,7 @@
             <li><button id ="answer3">Answer 3</button></li>
             <li><button id ="answer4">Answer 4</button></li>
         </ol>
+        <h4 id="validate-answer">Correct!</h4>
     </div>
     <script src="./assets/js/script.js"></script>
 </body>

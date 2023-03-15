@@ -18,4 +18,46 @@ create a reset high scores button
 
 */
 
-var timeRemaining = 60;
+var highScoreList = document.getElementById("high-score-list");
+var timeLeftSpan = document.getElementById("time-left-span");
+var startButton = document.getElementById("start-button");
+
+var timerCount;
+var isPlaying = false;
+var timer;
+var questionsAnswered = 0;
+var totalNumberOfQuestions = 10;
+
+
+function init(){
+    getHighScores();
+}
+
+function getHighScores(){
+    console.log("highs scores displayed!");
+}
+
+function startGame(){
+    timerCount = 60;
+    isPlaying = true;
+    startButton.disabled = true;
+    startTimer();
+}
+
+function startTimer() {
+    timer = setInterval(function() {
+        timerCount--;
+        timeLeftSpan.textContent = timerCount;
+        if (timerCount === 0 || questionsAnswered === totalNumberOfQuestions){
+            isPlaying = false;
+            clearInterval(timer);
+            gameOver();
+        }
+    }, 1000)
+}
+
+function gameOver(){
+
+}
+
+init();
