@@ -1,3 +1,7 @@
+.hidden{
+    display: none;
+}
+
 #instructions {
     margin: auto;
     width: 600px;
