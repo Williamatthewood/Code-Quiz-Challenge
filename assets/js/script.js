@@ -21,6 +21,7 @@ create a reset high scores button
 var highScoreList = document.getElementById("high-score-list");
 var timeLeftSpan = document.getElementById("time-left-span");
 var startButton = document.getElementById("start-button");
+var instructions = document.getElementById("instructions");
 
 var timerCount;
 var isPlaying = false;
@@ -42,6 +43,8 @@ function startGame(){
     isPlaying = true;
     startButton.disabled = true;
     startTimer();
+    hideInstructions();
+    showQuestions();
 }
 
 function startTimer() {
@@ -49,7 +52,6 @@ function startTimer() {
         timerCount--;
         timeLeftSpan.textContent = timerCount;
         if (timerCount === 0 || questionsAnswered === totalNumberOfQuestions){
-            isPlaying = false;
             clearInterval(timer);
             gameOver();
         }
@@ -57,7 +59,17 @@ function startTimer() {
 }
 
 function gameOver(){
+    isPlaying = false;
+}
+
+function hideInstructions(){
+    instructions.setAttribute("style", "display: none");
+}
+
+function showQuestions(){
 
 }
+
+startButton.addEventListener("click", startGame);
 
 init();
