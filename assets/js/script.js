@@ -1,18 +1,8 @@
 /* To do list:
 
-set time variable
-create timer with set interval
 retrieve high scores from local storage and display in list items
 store high score into local storage
-create start button
-start button makes instructions disappear
-start button makes random question appear
-validate correct response and incorrect response
-    display correct/ incorrect after response
-    go to new question after response
 Create input box to put in initials after game ends
-Make incorrect guess subtract 5 seconds from the clock
-pause clock when game ends
 make score = time remaining
 create a reset high scores button
 
@@ -28,7 +18,10 @@ var questionText = document.getElementById("question-text");
 var answerChoices = document.getElementById("answer-choices");
 var validateAnswer = document.getElementById("validate-answer");
 var gameOverScreen = document.getElementById("game-over");
+var intials = document.getElementById("initials");
+var submitButton = document.getElementById("score-submit");
 var replayButton = document.getElementById("replay");
+var scoreDisplay = document.getElementById("score");
 var answer1 = document.getElementById("answer1");
 var answer2 = document.getElementById("answer2");
 var answer3 = document.getElementById("answer3");
@@ -40,6 +33,8 @@ var isPlaying = false;
 var timer;
 var questionsAnswered = 0;
 var totalNumberOfQuestions = 5;
+var currentScore = 0;
+var scores = [];
 
 
 function init(){
@@ -77,6 +72,33 @@ function gameOver(){
     isPlaying = false;
     questionCard.classList.add("hidden");
     gameOverScreen.classList.remove("hidden");
+    currentScore = timerCount;
+    scoreDisplay.textContent = currentScore;
+
+}
+
+function saveScore(){
+    var newScore = {
+        initials: intials.value,
+        score: currentScore,
+    }
+
+    var testScore = {
+        intials: "BB",
+        score: 30,
+    }
+
+    var testScore2 = {
+        initials: "AA",
+        score: 55,
+    }
+    scores.push(newScore);
+    scores.push(testScore);
+    scores.push(testScore2);
+    console.log(scores);
+    
+    scores = scores.sort((a,b) => b.score - a.score);
+
 
 }
 
@@ -99,7 +121,6 @@ function question1(){
 
 function question2(){
     questionsAnswered++;
-    
     answer1.classList.remove("correct");
 
     questionText.textContent = "In which tag do you have to link your JavaScript document?";
@@ -208,8 +229,13 @@ function checkAnswer(event){
     } 
 }
 
-
-answerChoices.addEventListener("click", checkAnswer);
 startButton.addEventListener("click", startGame);
+answerChoices.addEventListener("click", checkAnswer);
+submitButton.addEventListener("click", function(event){
+    event.preventDefault();
+    saveScore();
+    getHighScores();
+});
+
 
 init();

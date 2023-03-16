@@ -43,3 +43,6 @@ THEN I can save my initials and score
 
 
 # External Resources
+
+to .sort objects by value:
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
