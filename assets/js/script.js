@@ -19,6 +19,7 @@ create a reset high scores button
 */
 
 var highScoreList = document.getElementById("high-score-list");
+var resetHighScoreButton = document.getElementById("reset");
 var timeLeftSpan = document.getElementById("time-left-span");
 var startButton = document.getElementById("start-button");
 var instructions = document.getElementById("instructions");
@@ -27,6 +28,7 @@ var questionText = document.getElementById("question-text");
 var answerChoices = document.getElementById("answer-choices");
 var validateAnswer = document.getElementById("validate-answer");
 var gameOverScreen = document.getElementById("game-over");
+var replayButton = document.getElementById("replay");
 var answer1 = document.getElementById("answer1");
 var answer2 = document.getElementById("answer2");
 var answer3 = document.getElementById("answer3");
@@ -42,6 +44,8 @@ var totalNumberOfQuestions = 5;
 
 function init(){
     getHighScores();
+    timerCount = 60;
+    timeLeftSpan.textContent = timerCount;
 }
 
 function getHighScores(){
