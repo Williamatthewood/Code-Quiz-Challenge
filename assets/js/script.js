@@ -44,7 +44,26 @@ function init(){
 }
 
 function getHighScores(){
-    console.log("highs scores displayed!");
+    var storedScores = JSON.parse(localStorage.getItem("scores"));
+
+    if(storedScores !== null){
+        scores = storedScores;
+    } else {
+        return;
+    }
+
+    if(scores.length > 5){
+        for (let i = scores.length; i > 5; i--) {
+            scores.pop();
+            
+        }
+    }
+
+    for (let i = 0; i < scores.length; i++) {
+        var listItem = document.createElement("li");
+        listItem.textContent = scores[i].score + " - " + scores[i].initials;
+        highScoreList.appendChild(listItem);
+    }
 }
 
 function startGame(){
@@ -83,37 +102,7 @@ function saveScore(){
         score: currentScore,
     }
 
-    var testScore = {
-        intials: "BB",
-        score: 30,
-    }
-
-    var testScore2 = {
-        initials: "AA",
-        score: 55,
-    }
-
-    var testScore3 = {
-        initials: "CC",
-        score: 44,
-    }
-
-    var testScore4 = {
-        initials: "DD",
-        score: 33,
-    }
-
-    var testScore5 = {
-        initials: "EE",
-        score: 22,
-    }
     scores.push(newScore);
-    scores.push(testScore);
-    scores.push(testScore2);
-    scores.push(testScore3);
-    scores.push(testScore4);
-    scores.push(testScore5);
-    console.log(scores);
     
     scores = scores.sort((a,b) => b.score - a.score);
 
@@ -121,9 +110,18 @@ function saveScore(){
         scores.pop();
     }
 
+    console.log(scores);
+
     localStorage.setItem("scores", JSON.stringify(scores));
+    submitButton.classList.add("hidden");
 
+}
 
+function resetScores(){
+    scores.splice(0);
+    console.log(scores);
+    localStorage.setItem("scores", JSON.stringify(scores));
+    highScoreList.innerHTML = "";
 }
 
 function hideInstructions(){
@@ -253,6 +251,10 @@ function checkAnswer(event){
     } 
 }
 
+function replay(){
+    location.reload();
+}
+
 startButton.addEventListener("click", startGame);
 answerChoices.addEventListener("click", checkAnswer);
 submitButton.addEventListener("click", function(event){
@@ -260,6 +262,8 @@ submitButton.addEventListener("click", function(event){
     saveScore();
     getHighScores();
 });
+resetHighScoreButton.addEventListener("click", resetScores);
+replayButton.addEventListener("click", replay);
 
 
 init();
