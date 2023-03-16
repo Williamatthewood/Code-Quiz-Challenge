@@ -80,47 +80,130 @@ function hideInstructions(){
 function question1(){
     questionText.textContent = "This is Question 1. Answer it dummy!";
     answer1.textContent = "This is answer 1";
-    answer1.classList.add("correct1");
+    answer1.classList.add("correct");
     answer2.textContent = "This is answer 2";
-    answer2.classList.add("incorrect1");
     answer3.textContent = "This is answer 3";
-    answer3.classList.add("incorrect1");
     answer4.textContent = "This is answer 4";
-    answer4.classList.add("incorrect1");
     
     
 }
 
 function question2(){
-    answer1.classList.remove("correct1");
-    answer2.classList.remove("incorrect1");
-    answer3.classList.remove("incorrect1");
-    answer4.classList.remove("incorrect1");
+    questionsAnswered++;
+    
+    answer1.classList.remove("correct");
 
     questionText.textContent = "This is Question 2. Answer it dummy!";
     answer1.textContent = "This is answer 1";
-    answer1.classList.add("incorrect2");
     answer2.textContent = "This is answer 2";
-    answer2.classList.add("correct2");
+    answer2.classList.add("correct");
     answer3.textContent = "This is answer 3";
-    answer3.classList.add("incorrect2");
     answer4.textContent = "This is answer 4";
-    answer4.classList.add("incorrect2");
     
     
 }
 
-function checkAnswer(event){
-   console.log(event.target);
+function question3(){
+    questionsAnswered++;
+    answer2.classList.remove("correct");
 
-   if(event.target.classList.contains("correct1")){
-    validateAnswer.textContent = "Correct!";
-    question2();
-   } else if(event.target.classList.contains("incorrect1")){
-    validateAnswer.textContent = "Incorrect!";
-    timerCount -= 5;
-    question2();
-   }
+    questionText.textContent = "This is Question 3. Answer it dummy!";
+    answer1.textContent = "This is answer 1";
+    answer2.textContent = "This is answer 2";
+    answer3.textContent = "This is answer 3";
+    answer4.textContent = "This is answer 4";
+    answer4.classList.add("correct");
+    
+    
+}
+
+function question4(){
+    questionsAnswered++;
+    answer4.classList.remove("correct");
+
+    questionText.textContent = "This is Question 4. Answer it dummy!";
+    answer1.textContent = "This is answer 1";
+    answer1.classList.add("correct");
+    answer2.textContent = "This is answer 2";
+    answer3.textContent = "This is answer 3";
+    answer4.textContent = "This is answer 4";
+
+    
+    
+}
+function question5(){
+    questionsAnswered++;
+    answer1.classList.remove("correct");
+
+    questionText.textContent = "This is Question 5. Answer it dummy!";
+    answer1.textContent = "This is answer 1";
+    answer2.textContent = "This is answer 2";
+    answer3.textContent = "This is answer 3";
+    answer3.classList.add("correct");
+    answer4.textContent = "This is answer 4";
+
+}
+
+
+function checkAnswer(event){
+   var answerChoice = event.target;
+   console.log(answerChoice);
+
+    if(questionsAnswered === 0){
+        if(answerChoice.classList.contains("correct")){
+            validateAnswer.textContent = "Correct!";
+            question2();
+        } else {
+            validateAnswer.textContent = "Incorrect!";
+            timerCount -= 5;
+            question2();
+        }
+    } else if(questionsAnswered === 1){
+        if(answerChoice.classList.contains("correct")){
+            validateAnswer.textContent = "Correct!";
+            question3();
+        } else {
+            validateAnswer.textContent = "Incorrect!";
+            timerCount -= 5;
+            question3();
+        }
+    } else if(questionsAnswered === 2){
+        if(answerChoice.classList.contains("correct")){
+            validateAnswer.textContent = "Correct!";
+            question4();
+        } else {
+            validateAnswer.textContent = "Incorrect!";
+            timerCount -= 5;
+            question4();
+        }
+    } else if(questionsAnswered === 3){
+        if(answerChoice.classList.contains("correct")){
+            validateAnswer.textContent = "Correct!";
+            question5();
+        } else {
+            validateAnswer.textContent = "Incorrect!";
+            timerCount -= 5;
+            question5();
+        }
+    } else if(questionsAnswered === 4){
+        if(answerChoice.classList.contains("correct")){
+            validateAnswer.textContent = "Correct!";
+            console.log("Finished!");
+        } else {
+            validateAnswer.textContent = "Incorrect!";
+            timerCount -= 5;
+            console.log("Finished with wrong answer!");
+        }
+    }
+
+//    if(event.target.classList.contains("correct1")){
+//     validateAnswer.textContent = "Correct!";
+//     question2();
+//    } else if(event.target.classList.contains("incorrect1")){
+//     validateAnswer.textContent = "Incorrect!";
+//     timerCount -= 5;
+//     question2();
+//    }
 
 }
 
