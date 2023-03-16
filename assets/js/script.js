@@ -26,6 +26,7 @@ var questionCard = document.getElementById("question-card");
 var questionText = document.getElementById("question-text");
 var answerChoices = document.getElementById("answer-choices");
 var validateAnswer = document.getElementById("validate-answer");
+var gameOverScreen = document.getElementById("game-over");
 var answer1 = document.getElementById("answer1");
 var answer2 = document.getElementById("answer2");
 var answer3 = document.getElementById("answer3");
@@ -36,7 +37,7 @@ var timerCount;
 var isPlaying = false;
 var timer;
 var questionsAnswered = 0;
-var totalNumberOfQuestions = 10;
+var totalNumberOfQuestions = 5;
 
 
 function init(){
@@ -68,7 +69,11 @@ function startTimer() {
 }
 
 function gameOver(){
+    console.log("gameOver confirmed");
     isPlaying = false;
+    questionCard.classList.add("hidden");
+    gameOverScreen.classList.remove("hidden");
+
 }
 
 function hideInstructions(){
@@ -78,12 +83,12 @@ function hideInstructions(){
 }
 
 function question1(){
-    questionText.textContent = "This is Question 1. Answer it dummy!";
-    answer1.textContent = "This is answer 1";
+    questionText.textContent = "Which of the following is NOT a primitive data type in JavaScript?";
+    answer1.textContent = "bit";
     answer1.classList.add("correct");
-    answer2.textContent = "This is answer 2";
-    answer3.textContent = "This is answer 3";
-    answer4.textContent = "This is answer 4";
+    answer2.textContent = "number";
+    answer3.textContent = "string";
+    answer4.textContent = "boolean";
     
     
 }
@@ -93,12 +98,12 @@ function question2(){
     
     answer1.classList.remove("correct");
 
-    questionText.textContent = "This is Question 2. Answer it dummy!";
-    answer1.textContent = "This is answer 1";
-    answer2.textContent = "This is answer 2";
+    questionText.textContent = "In which tag do you have to link your JavaScript document?";
+    answer1.textContent = "<html>";
+    answer2.textContent = "<script>";
     answer2.classList.add("correct");
-    answer3.textContent = "This is answer 3";
-    answer4.textContent = "This is answer 4";
+    answer3.textContent = "<link>";
+    answer4.textContent = "<head>";
     
     
 }
@@ -107,11 +112,11 @@ function question3(){
     questionsAnswered++;
     answer2.classList.remove("correct");
 
-    questionText.textContent = "This is Question 3. Answer it dummy!";
-    answer1.textContent = "This is answer 1";
-    answer2.textContent = "This is answer 2";
-    answer3.textContent = "This is answer 3";
-    answer4.textContent = "This is answer 4";
+    questionText.textContent = "Which of the following is the corret sign for loose equality in JavaScript?";
+    answer1.textContent = "=";
+    answer2.textContent = "!=";
+    answer3.textContent = "===";
+    answer4.textContent = "==";
     answer4.classList.add("correct");
     
     
@@ -121,12 +126,12 @@ function question4(){
     questionsAnswered++;
     answer4.classList.remove("correct");
 
-    questionText.textContent = "This is Question 4. Answer it dummy!";
-    answer1.textContent = "This is answer 1";
+    questionText.textContent = "Which array method adds an element to the beginning of an array?";
+    answer1.textContent = ".unshift()";
     answer1.classList.add("correct");
-    answer2.textContent = "This is answer 2";
-    answer3.textContent = "This is answer 3";
-    answer4.textContent = "This is answer 4";
+    answer2.textContent = ".sort()";
+    answer3.textContent = ".add()";
+    answer4.textContent = ".push()";
 
     
     
@@ -135,12 +140,12 @@ function question5(){
     questionsAnswered++;
     answer1.classList.remove("correct");
 
-    questionText.textContent = "This is Question 5. Answer it dummy!";
-    answer1.textContent = "This is answer 1";
-    answer2.textContent = "This is answer 2";
-    answer3.textContent = "This is answer 3";
+    questionText.textContent = "In the global scope, the keyword this refers to which of the follow?";
+    answer1.textContent = "The current function";
+    answer2.textContent = "The html document";
+    answer3.textContent = "The window object in the browser";
     answer3.classList.add("correct");
-    answer4.textContent = "This is answer 4";
+    answer4.textContent = "A variable called this";
 
 }
 
@@ -189,23 +194,16 @@ function checkAnswer(event){
         if(answerChoice.classList.contains("correct")){
             validateAnswer.textContent = "Correct!";
             console.log("Finished!");
+            questionsAnswered++;
         } else {
             validateAnswer.textContent = "Incorrect!";
             timerCount -= 5;
             console.log("Finished with wrong answer!");
+            questionsAnswered++;
         }
-    }
-
-//    if(event.target.classList.contains("correct1")){
-//     validateAnswer.textContent = "Correct!";
-//     question2();
-//    } else if(event.target.classList.contains("incorrect1")){
-//     validateAnswer.textContent = "Incorrect!";
-//     timerCount -= 5;
-//     question2();
-//    }
-
+    } 
 }
+
 
 answerChoices.addEventListener("click", checkAnswer);
 startButton.addEventListener("click", startGame);
