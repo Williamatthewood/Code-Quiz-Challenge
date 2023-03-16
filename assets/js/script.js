@@ -92,12 +92,36 @@ function saveScore(){
         initials: "AA",
         score: 55,
     }
+
+    var testScore3 = {
+        initials: "CC",
+        score: 44,
+    }
+
+    var testScore4 = {
+        initials: "DD",
+        score: 33,
+    }
+
+    var testScore5 = {
+        initials: "EE",
+        score: 22,
+    }
     scores.push(newScore);
     scores.push(testScore);
     scores.push(testScore2);
+    scores.push(testScore3);
+    scores.push(testScore4);
+    scores.push(testScore5);
     console.log(scores);
     
     scores = scores.sort((a,b) => b.score - a.score);
+
+    if (scores.length > 5){
+        scores.pop();
+    }
+
+    localStorage.setItem("scores", JSON.stringify(scores));
 
 
 }
