@@ -18,7 +18,7 @@ var questionText = document.getElementById("question-text");
 var answerChoices = document.getElementById("answer-choices");
 var validateAnswer = document.getElementById("validate-answer");
 var gameOverScreen = document.getElementById("game-over");
-var intials = document.getElementById("initials");
+var initials = document.getElementById("initials");
 var submitButton = document.getElementById("score-submit");
 var replayButton = document.getElementById("replay");
 var scoreDisplay = document.getElementById("score");
@@ -59,7 +59,7 @@ function getHighScores(){
         }
     }
     highScoreList.innerHTML = "";
-    
+
     for (let i = 0; i < scores.length; i++) {
         var listItem = document.createElement("li");
         listItem.textContent = scores[i].score + " - " + scores[i].initials;
@@ -69,7 +69,7 @@ function getHighScores(){
 
 function saveScore(){
     var newScore = {
-        initials: intials.value,
+        initials: initials.value,
         score: currentScore,
     }
 
@@ -85,6 +85,7 @@ function saveScore(){
 
     localStorage.setItem("scores", JSON.stringify(scores));
     submitButton.classList.add("hidden");
+    initials.value = "";
 
 }
 
