@@ -9,14 +9,14 @@
     <title>Code Quiz Game</title>
 </head>
 <body>
-    <section>
+    <section id="top-section">
         <div id="high-scores">
             <h2>High Scores: </h2>
             <ol id="high-score-list">
             </ol>
             <button id="reset">Reset High Scores</button>
         </div>
-        <div id="timer">Time: <span id="time-left-span"></span></div>
+        <h2 id="timer">Time: <span id="time-left-span"></span></h2>
     </section>
     
     <section id="instructions">
@@ -43,8 +43,11 @@
         <p>Input your initials below to save your high score!</p>
         <h3>Your Score: <span id="score"></span></h3>
         <input type="text" placeholder="Your Initials" id="initials">
-        <button id="score-submit">Submit</button>
-        <button id="replay">Replay</button>
+        <div id="game-over-buttons">
+            <button id="score-submit">Submit</button> 
+            <button id="replay">Replay</button>
+            
+        </div>
     </section>
     <script src="./assets/js/script.js"></script>
 </body>

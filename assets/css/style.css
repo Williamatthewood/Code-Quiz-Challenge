@@ -1,42 +1,91 @@
+h1, h2, h3 {
+  font-size: 34px;
+  margin: 10px;
+  font-weight: bold;
+}
+
+h2, h3 {
+  font-size: 26px;
+  margin-bottom: 20px;
+
+}
+
+h3 {
+  font-size: 22px;
+}
+
+li {
+  font-size: 22px;
+  font-style: italic;
+  font-weight: bold;
+  margin: 10px;
+}
+
+button {
+  display: block;
+  background-color: rgb(0, 0, 91);
+  color: white;
+  padding: 10px;
+  border: none;
+  text-align: left;
+  font-size: 16px;
+  margin: 10px;
+}
+
 .hidden{
     display: none;
 }
 
-#instructions {
-    margin: auto;
-    width: 600px;
-    padding: 20px;
+#top-section {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 30px;
+}
+
+#instructions,
+#game-over {
+  margin: 20px auto;
+  width: 600px;
+  padding: 20px;
+}
+
+#instructions p,
+#game-over p {
+  font-size: 20px;
+  font-style: italic;
+  margin: 20px 15px 20px 15px;
 }
 
 #question-card {
-    border: 1px solid black;
-    padding: 20px; 
-    width: 400px; 
-    margin: auto;
-    
-  }
+  border: 1px solid black;
+  padding: 20px; 
+  width: 600px; 
+  margin: auto;
+}
 
-  #question-card p {
-    font-size: 18px; 
-    font-weight: bold; 
-    margin-bottom: 20px;
-  }
+#question-card p {
+  font-size: 18px; 
+  font-weight: bold; 
+  margin-bottom: 20px;
+}
 
-  #question-card li {
-    margin-bottom: 10px;
-  }
+#question-card li {
+  margin-bottom: 10px;
+}
   
-  #question-card button {
-    display: block;
-    background-color: rgb(0, 0, 91);
-    color: white;
-    padding: 10px;
-    border: none;
-    width: 100%;
-    text-align: left;
-    font-size: 16px;
-  }
+#question-card button {
+  width: 50%;
+}
   
-  #question-card button:hover {
-    background-color: rgb(0, 136, 136);
-  }
+#question-card button:hover {
+  background-color: rgb(0, 136, 136);
+}
+
+#game-over-buttons{
+  display: flex;
+  justify-content: flex-start;
+}
+
+#initials {
+  margin: 10px;
+}
