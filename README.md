@@ -30,6 +30,7 @@ THEN I can save my initials and score
 
 # Description
 
+A simple quiz challenge with beginner level questions about JavaScript. The application relies heavily on updating the page dynamically using JavaScript by navigating the DOM. The application also stores high scores in local storage, so the data persists between loads of the page. 
 
 
 # Screenshots
