@@ -34,8 +34,13 @@ A simple quiz challenge with beginner level questions about JavaScript. The appl
 
 
 # Screenshots
+<img width="1407" alt="Screenshot 2023-03-17 at 11 35 55 AM" src="https://user-images.githubusercontent.com/112597870/225967247-a81c4b8a-9e22-401c-a1d9-d1ebe2d9abbe.png">
 
+<img width="1420" alt="Screenshot 2023-03-17 at 11 35 48 AM" src="https://user-images.githubusercontent.com/112597870/225967251-37c3d413-c02b-4ea3-a2bd-c416349118a1.png">
 
+<img width="1420" alt="Screenshot 2023-03-17 at 11 35 38 AM" src="https://user-images.githubusercontent.com/112597870/225967255-2119d94f-a9e7-4027-b157-6877e98b96e9.png">
+
+<img width="1435" alt="Screenshot 2023-03-17 at 11 35 28 AM" src="https://user-images.githubusercontent.com/112597870/225967258-4124453d-b9e2-47a1-9c1d-5f958abe2999.png">
 
 
 # Deployed Application
