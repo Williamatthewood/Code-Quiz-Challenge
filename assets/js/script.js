@@ -1,13 +1,3 @@
-/* To do list:
-
-retrieve high scores from local storage and display in list items
-store high score into local storage
-Create input box to put in initials after game ends
-make score = time remaining
-create a reset high scores button
-
-*/
-
 var highScoreList = document.getElementById("high-score-list");
 var resetHighScoreButton = document.getElementById("reset");
 var timeLeftSpan = document.getElementById("time-left-span");
