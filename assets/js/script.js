@@ -58,12 +58,41 @@ function getHighScores(){
             
         }
     }
-
+    highScoreList.innerHTML = "";
+    
     for (let i = 0; i < scores.length; i++) {
         var listItem = document.createElement("li");
         listItem.textContent = scores[i].score + " - " + scores[i].initials;
         highScoreList.appendChild(listItem);
     }
+}
+
+function saveScore(){
+    var newScore = {
+        initials: intials.value,
+        score: currentScore,
+    }
+
+    scores.push(newScore);
+    
+    scores = scores.sort((a,b) => b.score - a.score);
+
+    if (scores.length > 5){
+        scores.pop();
+    }
+
+    console.log(scores);
+
+    localStorage.setItem("scores", JSON.stringify(scores));
+    submitButton.classList.add("hidden");
+
+}
+
+function resetScores(){
+    scores.splice(0);
+    console.log(scores);
+    localStorage.setItem("scores", JSON.stringify(scores));
+    highScoreList.innerHTML = "";
 }
 
 function startGame(){
@@ -96,33 +125,7 @@ function gameOver(){
 
 }
 
-function saveScore(){
-    var newScore = {
-        initials: intials.value,
-        score: currentScore,
-    }
 
-    scores.push(newScore);
-    
-    scores = scores.sort((a,b) => b.score - a.score);
-
-    if (scores.length > 5){
-        scores.pop();
-    }
-
-    console.log(scores);
-
-    localStorage.setItem("scores", JSON.stringify(scores));
-    submitButton.classList.add("hidden");
-
-}
-
-function resetScores(){
-    scores.splice(0);
-    console.log(scores);
-    localStorage.setItem("scores", JSON.stringify(scores));
-    highScoreList.innerHTML = "";
-}
 
 function hideInstructions(){
     instructions.classList.add("hidden");
